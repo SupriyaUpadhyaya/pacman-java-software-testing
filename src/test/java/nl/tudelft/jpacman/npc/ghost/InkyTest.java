@@ -15,10 +15,11 @@ import org.junit.jupiter.api.Test;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class InkyTest {
-
+    /**
+     * create player, ghost and pac-man.
+     **/
     private Player player;
     private Ghost inky;
     private Ghost blinky;
@@ -26,8 +27,8 @@ class InkyTest {
     private PacManSprites pacManSprites;
 
     /**
-     * Before test method to create PacMan and inky ghost, To initialise a GhostMapParser
-     * with required Level and Board
+     * Before test method to create PacMan and inky ghost, To initialise a GhostMapParser.
+     * with required Level and Board.
      **/
 
     @BeforeEach
@@ -42,27 +43,31 @@ class InkyTest {
     }
 
     /**
-     * When there is a wall in between Inky and Blinky --> Inky must not move
+     * When there is a wall in between Inky and Blinky --> Inky must not move.
      **/
     @Test
     void wallInBetween() {
-        char[][] levelMap = {"############".toCharArray(), "#I #B P     #".toCharArray(), "############".toCharArray()};
+        char[][] levelMap = {"############".toCharArray(),
+            "#I #B P     #".toCharArray(),
+            "############".toCharArray()};
 
         Level level = ghostMapParser.parseMap(levelMap);
         inky = Navigation.findUnitInBoard(Inky.class, level.getBoard());
         level.registerPlayer(player);
         player.setDirection(Direction.NORTH);
         assertThat(inky != null);
-        Optional<Direction> inky_direction = inky.nextAiMove();
-        assertThat(inky_direction).isEmpty();
+        Optional<Direction> inkyDirection = inky.nextAiMove();
+        assertThat(inkyDirection).isEmpty();
     }
 
     /**
-     * When Inky is with Blinky and they are behind player --> Inky is expected to follow Blinky
+     * When Inky is with Blinky and they are behind player --> Inky is expected to follow Blinky.
      **/
     @Test
     void togetherBehindPlayer() {
-        char[][] levelMap = {"############".toCharArray(), "#IB P      #".toCharArray(), "############".toCharArray()};
+        char[][] levelMap = {"############".toCharArray(),
+            "#IB P      #".toCharArray(),
+            "############".toCharArray()};
 
         Level level = ghostMapParser.parseMap(levelMap);
         inky = Navigation.findUnitInBoard(Inky.class, level.getBoard());
@@ -70,57 +75,63 @@ class InkyTest {
         level.registerPlayer(player);
         player.setDirection(Direction.NORTH);
         assertThat(inky != null);
-        Optional<Direction> inky_direction = inky.nextAiMove();
-        Optional<Direction> blinky_direction = blinky.nextAiMove();
-        assertThat(inky_direction).isEqualTo(blinky_direction);
+        Optional<Direction> inkyDirection = inky.nextAiMove();
+        Optional<Direction> blinkyDirection = blinky.nextAiMove();
+        assertThat(inkyDirection).isEqualTo(blinkyDirection);
     }
 
     /**
-     * When there is no blinky on board --> Inky does not move
+     * When there is no blinky on board --> Inky does not move.
      **/
     @Test
     void noBlinky() {
-        char[][] levelMap = {"############".toCharArray(), "#I   P     #".toCharArray(), "############".toCharArray()};
+        char[][] levelMap = {"############".toCharArray(),
+            "#I   P     #".toCharArray(),
+            "############".toCharArray()};
 
         Level level = ghostMapParser.parseMap(levelMap);
         inky = Navigation.findUnitInBoard(Inky.class, level.getBoard());
         level.registerPlayer(player);
         player.setDirection(Direction.NORTH);
         assertThat(inky != null);
-        Optional<Direction> inky_direction = inky.nextAiMove();
-        assertThat(inky_direction).isEmpty();
+        Optional<Direction> inkyDirection = inky.nextAiMove();
+        assertThat(inkyDirection).isEmpty();
     }
 
     /**
-     * When there is no player on board --> Inky must not move
-     * with required Level and Board
+     * When there is no player on board --> Inky must not move.
+     * with required Level and Board.
      **/
     @Test
     void noPlayer() {
-        char[][] levelMap = {"############".toCharArray(), "#IB        #".toCharArray(), "############".toCharArray()};
+        char[][] levelMap = {"############".toCharArray(),
+            "#IB        #".toCharArray(),
+            "############".toCharArray()};
 
         Level level = ghostMapParser.parseMap(levelMap);
         inky = Navigation.findUnitInBoard(Inky.class, level.getBoard());
         assertThat(inky != null);
-        Optional<Direction> inky_direction = inky.nextAiMove();
-        assertThat(inky_direction).isEmpty();
+        Optional<Direction> inkyDirection = inky.nextAiMove();
+        assertThat(inkyDirection).isEmpty();
     }
 
     /**
-     * When player in between inky and blinky --> inky moves away from player
-     * with required Level and Board
+     * When player in between inky and blinky --> inky moves away from player.
+     * with required Level and Board.
      **/
     @Test
     void playerInBetween() {
-        char[][] levelMap = {"############".toCharArray(), "#I  P B    #".toCharArray(), "############".toCharArray()};
+        char[][] levelMap = {"############".toCharArray(),
+            "#I  P B    #".toCharArray(),
+            "############".toCharArray()};
 
         Level level = ghostMapParser.parseMap(levelMap);
         inky = Navigation.findUnitInBoard(Inky.class, level.getBoard());
         level.registerPlayer(player);
         player.setDirection(Direction.NORTH);
         assertThat(inky != null);
-        Optional<Direction> inky_direction = inky.nextAiMove();
-        assertThat(inky_direction).isEqualTo(Optional.of(Direction.SOUTH));
+        Optional<Direction> inkyDirection = inky.nextAiMove();
+        assertThat(inkyDirection).isEqualTo(Optional.of(Direction.SOUTH));
     }
 
 
