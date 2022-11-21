@@ -37,7 +37,7 @@ class ClydeTest {
      * with required Level and Board
     **/
     @BeforeEach
-    void createTestScenario(){
+    void setUp(){
         pacManSprites = new PacManSprites();
         BoardFactory boardFactory = new BoardFactory(pacManSprites);
         GhostFactory ghostFactory = new GhostFactory(pacManSprites);
@@ -98,7 +98,7 @@ class ClydeTest {
 
     /**
      * Clyde must not move when the path between Clyde and player is not empty i.e., if there could be
-     * another ghost in between
+     * wall in between
      **/
     @Test
     void pathNotEmpty(){
