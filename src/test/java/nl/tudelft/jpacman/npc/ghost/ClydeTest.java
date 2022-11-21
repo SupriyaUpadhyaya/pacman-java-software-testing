@@ -32,6 +32,10 @@ class ClydeTest {
     private GhostMapParser ghostMapParser;
     private PacManSprites pacManSprites;
 
+    /**
+     * Before test method to create PacMan and Clyde ghost, To initialise a GhostMapParser
+     * with required Level and Board
+    **/
     @BeforeEach
     void createTestScenario(){
         pacManSprites = new PacManSprites();
@@ -43,6 +47,10 @@ class ClydeTest {
         player = playerFactory.createPacMan();
     }
 
+    /**
+     * Clyde must move in the direction of the player i.e., NORTH as the SHYNESS between
+     * Clyde and player set is equal to 8
+     **/
     @Test
     void withinShyness(){
         char[][] levelMap = {"############".toCharArray(), "#P        C#".toCharArray(), "############".toCharArray()};
@@ -56,6 +64,10 @@ class ClydeTest {
         assertThat(clyde_direction).isEqualTo(Optional.of(Direction.NORTH));
     }
 
+    /**
+     * Clyde must move in the direction opposite to that of the player i.e., SOUTH
+     * as the SHYNESS between Clyde and player set less than 8
+     **/
     @Test
     void outsideShyness(){
         char[][] levelMap = {"############".toCharArray(), "# P       C#".toCharArray(), "############".toCharArray()};
@@ -69,6 +81,9 @@ class ClydeTest {
         assertThat(clyde_direction).isEqualTo(Optional.of(Direction.SOUTH));
     }
 
+    /**
+     * Clyde must not move when there is no player
+     **/
     @Test
     void noPlayer(){
         char[][] levelMap = {"############".toCharArray(), "#         C#".toCharArray(), "############".toCharArray()};
@@ -81,6 +96,10 @@ class ClydeTest {
         assertThat(clyde_direction).isEmpty();
     }
 
+    /**
+     * Clyde must not move when the path between Clyde and player is not empty i.e., if there could be
+     * another ghost in between
+     **/
     @Test
     void pathNotEmpty(){
         char[][] levelMap = {"############".toCharArray(), "#   C#    P#".toCharArray(), "############".toCharArray()};
