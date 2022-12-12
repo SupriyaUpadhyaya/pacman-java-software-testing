@@ -101,8 +101,8 @@ class ClydeTest {
     }
 
     /**
-     * Clyde must not move when the path between Clyde and player is not empty i.e., if there could be
-     * wall in between
+     * Clyde must not move when the path between Clyde and player is not empty
+     * i.e., if there could be wall in between.
      **/
     @Test
     void pathNotEmpty() {
