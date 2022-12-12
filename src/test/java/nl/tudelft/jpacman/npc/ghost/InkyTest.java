@@ -16,6 +16,9 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Unit test class to test the characteristics of Inky ghost.
+ */
 class InkyTest {
     /**
      * create player, ghost and pac-man.
