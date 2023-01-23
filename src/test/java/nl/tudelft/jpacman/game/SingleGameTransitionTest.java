@@ -19,7 +19,7 @@ public class SingleGameTransitionTest {
     private Player pacman;
 
     /**
-     * Start a single level game using Launcher
+     * Start a single level game using Launcher.
      */
     @BeforeEach
     public void before() {
@@ -29,7 +29,7 @@ public class SingleGameTransitionTest {
 
 
     /**
-     * Assert that game only starts after start button is clicked
+     * Assert that game only starts after start button is clicked.
      */
     @Test
     void gameStart() {
@@ -41,7 +41,7 @@ public class SingleGameTransitionTest {
     }
 
     /**
-     * Assert that game is not running after player won and player is still alive
+     * Assert that game is not running after player won and player is still alive.
      */
     @Test
     void playerWon() {
@@ -60,7 +60,7 @@ public class SingleGameTransitionTest {
     }
 
     /**
-     * Assert that game is not running player lost and player is not alive
+     * Assert that game is not running player lost and player is not alive.
      */
     @Test
     void playerLost() {
@@ -78,7 +78,7 @@ public class SingleGameTransitionTest {
     }
 
     /**
-     * Assert that a game is not in progress when user clicks on stop button
+     * Assert that a game is not in progress when user clicks on stop button.
      */
     @Test
     void gameOnhold() {
@@ -90,7 +90,7 @@ public class SingleGameTransitionTest {
     }
 
     /**
-     * Assert that a game not in progress is running after user clicks on start button
+     * Assert that a game not in progress is running after user clicks on start button.
      */
     @Test
     void gameResume() {

@@ -10,8 +10,13 @@ import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test scenarios for multi level game
+ */
 public class MultiLevelGameTest {
-
+    /**
+     * create game
+     */
     private Level level;
     private GameFactory gameFactory;
     private Game game;
@@ -24,8 +29,8 @@ public class MultiLevelGameTest {
         playerFactory = Mockito.mock(PlayerFactory.class);
         pointCalculator = Mockito.mock(PointCalculator.class);
         gameFactory = new GameFactory(playerFactory);
-        Mockito.when(playerFactory.createPacMan()).thenReturn(Mockito.mock(Player.class));
-
+        Mockito.when(playerFactory.createPacMan()).thenReturn(
+            Mockito.mock(Player.class));
 
         /**
          * checking 100% branch coverage.
@@ -37,7 +42,7 @@ public class MultiLevelGameTest {
      * isAnyPlayerAlive = true.
      * remainingPellets > 0.
      */
-    void niceWeatherStart(){
+    void niceWeatherStart() {
         game = gameFactory.createMultiLevelGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(1);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(true);
