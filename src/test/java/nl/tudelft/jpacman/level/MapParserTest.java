@@ -30,7 +30,11 @@ public class MapParserTest {
     PacManSprites pacManSprites;
 
     MapParser mapParser;
-    int num = 10;
+    public static final int num = 10;
+    public static final int num1 = 3;
+    public static final int num2 = 11;
+    public static final int num3 = 29;
+    public static final int num4 = 7;
 
     /**
      * used mockito framework and defined behaviour for the mock objects.
@@ -65,13 +69,13 @@ public class MapParserTest {
         };
         mapParser.parseMap(grid);
         Mockito.verify(levelFactory,
-            Mockito.times(3)).createGhost();
+            Mockito.times(num1)).createGhost();
         Mockito.verify(levelFactory,
-            Mockito.times(11)).createPellet();
+            Mockito.times(num2)).createPellet();
         Mockito.verify(boardFactory,
-            Mockito.times(29)).createGround();
+            Mockito.times(num3)).createGround();
         Mockito.verify(boardFactory,
-            Mockito.times(7)).createWall();
+            Mockito.times(num4)).createWall();
     }
 
     /**

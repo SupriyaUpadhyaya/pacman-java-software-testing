@@ -32,8 +32,8 @@ abstract class CollisionMapTest {
      **/
     @Test
     void playerVsPellet() {
-        int number1 = 50;
-        int number2 = 60;
+        final int number1 = 50;
+        final int number2 = 60;
         player.addPoints(number1);
         collisionMap.collide(player, pellet);
         assertThat(player.getScore()).isEqualTo(number2);
@@ -57,7 +57,7 @@ abstract class CollisionMapTest {
      */
     @Test
     void ghostVsPellet() {
-        int number = 50;
+        final int number = 50;
         player.addPoints(number);
         Ghost ghost = mock(Ghost.class);
         collisionMap.collide(ghost, pellet);
