@@ -19,13 +19,17 @@ abstract class CollisionMapTest {
     @Mock
     private PointCalculator pointCalculator = new DefaultPointCalculator();
     @Mock  private PacManSprites pacman = new PacManSprites();
-    @Mock CollisionMap collisionMap;
+    @Mock private CollisionMap collisionMap;
     @Mock private Player player;
 
     PointCalculator getPointCalculator() {
         return this.pointCalculator;
     }
 
+    CollisionMap setCollisionMap(CollisionMap collisionMap) {
+        this.collisionMap = collisionMap;
+        return this.collisionMap;
+    }
     PacManSprites getPacman() {
         return this.pacman;
     }
@@ -38,7 +42,7 @@ abstract class CollisionMapTest {
     public static final int NUMBER_2 = 60;
     public static final int NUMBER_3 = 10;
     @Mock
-    protected Pellet pellet = new Pellet(NUMBER_3, pacman.getPelletSprite());
+    private Pellet pellet = new Pellet(NUMBER_3, pacman.getPelletSprite());
 
     @BeforeEach
     abstract void setUp();
