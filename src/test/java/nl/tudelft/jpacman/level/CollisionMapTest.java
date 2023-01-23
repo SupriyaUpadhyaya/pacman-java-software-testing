@@ -1,6 +1,5 @@
 package nl.tudelft.jpacman.level;
 
-import net.bytebuddy.asm.Advice;
 import nl.tudelft.jpacman.npc.Ghost;
 import nl.tudelft.jpacman.points.DefaultPointCalculator;
 import nl.tudelft.jpacman.points.PointCalculator;
@@ -32,7 +31,7 @@ abstract class CollisionMapTest {
     }
 
     /**
-     * @return
+     *
      * @param collisionMap
      */
     CollisionMap setCollisionMap(CollisionMap collisionMap) {
@@ -49,7 +48,7 @@ abstract class CollisionMapTest {
     }
 
     /**
-     * @return
+     *
      * @param player
      *
      */
