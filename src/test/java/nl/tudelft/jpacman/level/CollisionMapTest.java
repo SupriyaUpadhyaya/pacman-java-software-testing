@@ -17,14 +17,26 @@ import static org.mockito.Mockito.mock;
 abstract class CollisionMapTest {
 
     @Mock
-    protected PointCalculator pointCalculator = new DefaultPointCalculator();
-    @Mock  protected PacManSprites pacman = new PacManSprites();
+    private PointCalculator pointCalculator = new DefaultPointCalculator();
+    @Mock  private PacManSprites pacman = new PacManSprites();
     @Mock CollisionMap collisionMap;
-    @Mock protected Player player;
+    @Mock private Player player;
 
+    PointCalculator getPointCalculator() {
+        return this.pointCalculator;
+    }
+
+    PacManSprites getPacman() {
+        return this.pacman;
+    }
+
+    Player setPlayer(Player player) {
+        this.player = player;
+        return player;
+    }
     public static final int NUMBER_1 = 50;
     public static final int NUMBER_2 = 60;
-    public static final int NUMBER_3 = 20;
+    public static final int NUMBER_3 = 10;
     @Mock
     protected Pellet pellet = new Pellet(NUMBER_3, pacman.getPelletSprite());
 

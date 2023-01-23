@@ -11,9 +11,9 @@ class PlayerCollisionsTest extends CollisionMapTest {
      */
     @BeforeEach
     void setUp() {
-        collisionMap = new PlayerCollisions(pointCalculator);
-        PlayerFactory playerFactory = new PlayerFactory(pacman);
-        player = playerFactory.createPacMan();
+        collisionMap = new PlayerCollisions(getPointCalculator());
+        PlayerFactory playerFactory = new PlayerFactory(getPacman());
+        setPlayer(playerFactory.createPacMan());
     }
 
 }
