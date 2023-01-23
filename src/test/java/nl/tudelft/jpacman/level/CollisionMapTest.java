@@ -14,11 +14,51 @@ import static org.mockito.Mockito.mock;
  * Test cases for different collision between different units.
  */
 abstract class CollisionMapTest {
+    public PointCalculator getPointCalculator() {
+        return pointCalculator;
+    }
+
+    public void setPointCalculator(PointCalculator pointCalculator) {
+        this.pointCalculator = pointCalculator;
+    }
+
+    public PacManSprites getPacman() {
+        return pacman;
+    }
+
+    public void setPacman(PacManSprites pacman) {
+        this.pacman = pacman;
+    }
+
+    public CollisionMap getCollisionMap() {
+        return collisionMap;
+    }
+
+    public void setCollisionMap(CollisionMap collisionMap) {
+        this.collisionMap = collisionMap;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Pellet getPellet() {
+        return pellet;
+    }
+
+    public void setPellet(Pellet pellet) {
+        this.pellet = pellet;
+    }
+
     /**
      * Create DefaultPointCalculator.
      */
     @Mock
-    protected PointCalculator pointCalculator = new DefaultPointCalculator();
+    private PointCalculator pointCalculator = new DefaultPointCalculator();
     @Mock  protected PacManSprites pacman = new PacManSprites();
     @Mock protected CollisionMap collisionMap;
     @Mock protected Player player;

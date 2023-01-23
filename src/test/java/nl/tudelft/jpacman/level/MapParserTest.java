@@ -22,10 +22,10 @@ public class MapParserTest {
     /**
      * Creating mocks for MapParser class.
      */
-    private LevelFactory levelFactory;
-    private BoardFactory boardFactory;
-    PacManSprites pacManSprites;
-    MapParser mapParser;
+    protected LevelFactory levelFactory;
+    protected BoardFactory boardFactory;
+    protected PacManSprites pacManSprites;
+    protected MapParser mapParser;
     public static final int NUM = 10;
     public static final int NUM_1 = 3;
     public static final int NUM_2 = 11;
