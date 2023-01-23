@@ -15,7 +15,9 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-
+/**
+ * Test class for MapParser.
+ */
 public class MapParserTest {
 
     /**
@@ -38,10 +40,14 @@ public class MapParserTest {
         levelFactory = Mockito.mock(LevelFactory.class);
         boardFactory = Mockito.mock(BoardFactory.class);
         mapParser = new MapParser(levelFactory, boardFactory);
-        Mockito.when(levelFactory.createGhost()).thenReturn(new Clyde(pacManSprites.getGhostSprite(GhostColor.ORANGE)));
-        Mockito.when(levelFactory.createPellet()).thenReturn(new Pellet(10, pacManSprites.getPelletSprite()));
-        Mockito.when(boardFactory.createGround()).thenReturn(new BoardFactory(pacManSprites).createGround());
-        Mockito.when(boardFactory.createWall()).thenReturn(new BoardFactory(pacManSprites).createWall());
+        Mockito.when(levelFactory.createGhost()).thenReturn(new
+            Clyde(pacManSprites.getGhostSprite(GhostColor.ORANGE)));
+        Mockito.when(levelFactory.createPellet()).thenReturn(new
+            Pellet(10, pacManSprites.getPelletSprite()));
+        Mockito.when(boardFactory.createGround()).thenReturn(new
+            BoardFactory(pacManSprites).createGround());
+        Mockito.when(boardFactory.createWall()).thenReturn(new
+            BoardFactory(pacManSprites).createWall());
 
     }
 
@@ -55,10 +61,14 @@ public class MapParserTest {
             {'P', ' ', '.', '.', '#', '#', '.', '#', ' ', ' ', '#', ' '},
             {'.', '#', '.', ' ', ' ', '#', '.', ' ', '.', '.', ' ', 'G'}};
         mapParser.parseMap(grid);
-        Mockito.verify(levelFactory, Mockito.times(3)).createGhost();
-        Mockito.verify(levelFactory, Mockito.times(11)).createPellet();
-        Mockito.verify(boardFactory, Mockito.times(29)).createGround();
-        Mockito.verify(boardFactory, Mockito.times(7)).createWall();
+        Mockito.verify(levelFactory,
+            Mockito.times(3)).createGhost();
+        Mockito.verify(levelFactory,
+            Mockito.times(11)).createPellet();
+        Mockito.verify(boardFactory,
+            Mockito.times(29)).createGround();
+        Mockito.verify(boardFactory,
+            Mockito.times(7)).createWall();
     }
 
     /**
@@ -72,7 +82,8 @@ public class MapParserTest {
         char[][] grid = {{' ', ' ', 'G', '.', ' ', 'P', '#', '$', '.', '.', ' ', 'G'},
             {'P', ' ', '.', '.', '#', '#', '.', '#', ' ', ' ', '#', ' '},
             {'.', '#', '.', ' ', ' ', '#', '.', ' ', '.', '.', ' ', 'G'}};
-        assertThatExceptionOfType(PacmanConfigurationException.class).isThrownBy(() -> {mapParser.parseMap(grid); })
+        assertThatExceptionOfType(PacmanConfigurationException.class)
+            .isThrownBy(() -> {mapParser.parseMap(grid); })
             .withMessage("Invalid character at 0,7: $")
             .withNoCause();
 
@@ -83,7 +94,8 @@ public class MapParserTest {
      * if the input contains zero rows.
      */
     void noRow() {
-        assertThatExceptionOfType(PacmanConfigurationException.class).isThrownBy(() -> {
+        assertThatExceptionOfType(PacmanConfigurationException.class)
+            .isThrownBy(() -> {
                 mapParser.parseMap(new ArrayList<>());
             })
             .withMessage("Input text must consist of at least 1 row.")
@@ -96,7 +108,8 @@ public class MapParserTest {
      */
     void emptyInput(){
         List<String> input = Lists.newArrayList("");
-        assertThatExceptionOfType(PacmanConfigurationException.class).isThrownBy(() -> {
+        assertThatExceptionOfType(PacmanConfigurationException.class)
+            .isThrownBy(() -> {
                 mapParser.parseMap(input);
             })
             .withMessage("Input text lines cannot be empty.")
@@ -109,7 +122,8 @@ public class MapParserTest {
      */
     void nullInput(){
         List<String> input = null;
-        assertThatExceptionOfType(PacmanConfigurationException.class).isThrownBy(() -> {
+        assertThatExceptionOfType(PacmanConfigurationException.class)
+            .isThrownBy(() -> {
                 mapParser.parseMap(input);
             })
             .withMessage("Input text cannot be null.")
@@ -122,7 +136,8 @@ public class MapParserTest {
      */
     void unequalWidth(){
         List<String> input = Lists.newArrayList("GP.######", "...##");
-        assertThatExceptionOfType(PacmanConfigurationException.class).isThrownBy(() -> {mapParser.parseMap(input); })
+        assertThatExceptionOfType(PacmanConfigurationException.class)
+            .isThrownBy(() -> {mapParser.parseMap(input); })
             .withMessage("Input text lines are not of equal width.")
             .withNoCause();
     }
@@ -133,7 +148,8 @@ public class MapParserTest {
      */
     void noResFile(){
         String resFile = "dummy.txt";
-        assertThatExceptionOfType(PacmanConfigurationException.class).isThrownBy(() -> {mapParser.parseMap(resFile); })
+        assertThatExceptionOfType(PacmanConfigurationException.class)
+            .isThrownBy(() -> {mapParser.parseMap(resFile); })
             .withMessage("Could not get resource for: " + resFile)
             .withNoCause();
     }

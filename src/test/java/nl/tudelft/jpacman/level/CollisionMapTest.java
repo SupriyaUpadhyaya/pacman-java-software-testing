@@ -15,21 +15,19 @@ import static org.mockito.Mockito.mock;
  * Test cases for different collision between different units.
  */
 abstract class CollisionMapTest {
-
+    /**
+     * Create DefaultPointCalculator
+     */
     @Mock
     protected PointCalculator pointCalculator = new DefaultPointCalculator();
     @Mock  protected PacManSprites pacman = new PacManSprites();
     @Mock CollisionMap collisionMap;
     @Mock protected Player player;
-
     int number = 10;
     @Mock
     protected Pellet pellet = new Pellet(number, pacman.getPelletSprite());
-    
-    @BeforeEach
-    abstract void setUp();
 
-    /** When Player colloides with Pellet the player
+    /** When Player colloides with Pellet the player.
      * points increase by the value of the pellet.
      **/
     @Test
@@ -41,8 +39,8 @@ abstract class CollisionMapTest {
         assertThat(player.getScore()).isEqualTo(number2);
         assertThat(player.hasSquare()).isEqualTo(false);
     }
-    /** When player colloides ghost the player is not
-     * alive and the killer of player is the ghost that player
+    /** When player colloides ghost the player is not.
+     * alive and the killer of player is the ghost that player.
      * collided with.
      */
     @Test
@@ -54,7 +52,7 @@ abstract class CollisionMapTest {
     }
 
     /**
-     * When Ghost colloides Pallet nothing happens to the player
+     * When Ghost colloides Pallet nothing happens to the player.
      * - Player is alive and score is the same.
      */
     @Test
@@ -68,7 +66,7 @@ abstract class CollisionMapTest {
     }
 
     /**
-     * When Ghost colloides with Player the is not alive and
+     * When Ghost colloides with Player the is not alive and.
      * killer is the ghost that collided with the player.
     */
     @Test

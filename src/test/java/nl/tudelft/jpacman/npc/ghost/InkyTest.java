@@ -39,7 +39,8 @@ class InkyTest {
         pacManSprites = new PacManSprites();
         BoardFactory boardFactory = new BoardFactory(pacManSprites);
         GhostFactory ghostFactory = new GhostFactory(pacManSprites);
-        LevelFactory levelFactory = new LevelFactory(pacManSprites, ghostFactory, new DefaultPointCalculator());
+        LevelFactory levelFactory = new LevelFactory(pacManSprites,
+            ghostFactory, new DefaultPointCalculator());
         PlayerFactory playerFactory = new PlayerFactory(pacManSprites);
         ghostMapParser = new GhostMapParser(levelFactory, boardFactory, ghostFactory);
         player = playerFactory.createPacMan();

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
  */
 class PlayerCollisionsTest extends CollisionMapTest {
 
-    @Override
     @BeforeEach
     void setUp() {
         collisionMap = new PlayerCollisions(pointCalculator);

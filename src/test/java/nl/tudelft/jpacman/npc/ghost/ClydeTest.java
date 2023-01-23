@@ -31,23 +31,24 @@ class ClydeTest {
     private PacManSprites pacManSprites;
 
     /**
-     * Before test method to create PacMan and Clyde ghost, To initialise a GhostMapParser
-     * with required Level and Board
+     * Before test method to create PacMan and Clyde ghost, To initialise a GhostMapParser.
+     * with required Level and Board.
     **/
     @BeforeEach
     void setUp() {
         pacManSprites = new PacManSprites();
         BoardFactory boardFactory = new BoardFactory(pacManSprites);
         GhostFactory ghostFactory = new GhostFactory(pacManSprites);
-        LevelFactory levelFactory = new LevelFactory(pacManSprites, ghostFactory, new DefaultPointCalculator());
+        LevelFactory levelFactory = new LevelFactory(pacManSprites,
+            ghostFactory, new DefaultPointCalculator());
         PlayerFactory playerFactory = new PlayerFactory(pacManSprites);
         ghostMapParser = new GhostMapParser(levelFactory, boardFactory, ghostFactory);
         player = playerFactory.createPacMan();
     }
 
     /**
-     * Clyde must move in the direction of the player i.e., NORTH as the SHYNESS between
-     * Clyde and player set is equal to 8
+     * Clyde must move in the direction of the player i.e., NORTH as the SHYNESS between.
+     * Clyde and player set is equal to 8.
      **/
     @Test
     void withinShyness() {
@@ -65,8 +66,8 @@ class ClydeTest {
     }
 
     /**
-     * Clyde must move in the direction opposite to that of the player i.e., SOUTH
-     * as the SHYNESS between Clyde and player set less than 8
+     * Clyde must move in the direction opposite to that of the player i.e., SOUTH.
+     * as the SHYNESS between Clyde and player set less than 8.
      **/
     @Test
     void outsideShyness() {
@@ -84,7 +85,7 @@ class ClydeTest {
     }
 
     /**
-     * Clyde must not move when there is no player
+     * Clyde must not move when there is no player.
      **/
     @Test
     void noPlayer() {
