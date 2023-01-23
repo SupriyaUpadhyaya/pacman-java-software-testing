@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.level;
 
+import net.bytebuddy.asm.Advice;
 import nl.tudelft.jpacman.npc.Ghost;
 import nl.tudelft.jpacman.points.DefaultPointCalculator;
 import nl.tudelft.jpacman.points.PointCalculator;
@@ -31,9 +32,8 @@ abstract class CollisionMapTest {
     }
 
     /**
-     *
-     * @param collisionMap
      * @return
+     * @param collisionMap
      */
     CollisionMap setCollisionMap(CollisionMap collisionMap) {
         this.collisionMap = collisionMap;
@@ -49,9 +49,9 @@ abstract class CollisionMapTest {
     }
 
     /**
-     *
-     * @param player
      * @return
+     * @param player
+     *
      */
     Player setPlayer(Player player) {
         this.player = player;
@@ -63,6 +63,9 @@ abstract class CollisionMapTest {
     @Mock
     private Pellet pellet = new Pellet(NUMBER_3, pacman.getPelletSprite());
 
+    /**
+     * test setup.
+     */
     @BeforeEach
     abstract void setUp();
 
