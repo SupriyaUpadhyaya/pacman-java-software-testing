@@ -32,9 +32,8 @@ abstract class CollisionMapTest {
 
     /**
      * @param collisionMap
-     * @return collistionMap.
      */
-     void setCollisionMap(CollisionMap collisionMap) {
+    void setCollisionMap(CollisionMap collisionMap) {
         this.collisionMap = collisionMap;
     }
 
@@ -48,7 +47,6 @@ abstract class CollisionMapTest {
 
     /**
      * @param player
-     * @return player.
      */
     void setPlayer(Player player) {
         this.player = player;
