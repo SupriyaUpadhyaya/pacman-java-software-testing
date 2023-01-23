@@ -22,10 +22,10 @@ public class MapParserTest {
     /**
      * Creating mocks for MapParser class.
      */
-    protected LevelFactory levelFactory;
-    protected BoardFactory boardFactory;
-    protected PacManSprites pacManSprites;
-    protected MapParser mapParser;
+    private LevelFactory levelFactory;
+    private BoardFactory boardFactory;
+    private PacManSprites pacManSprites;
+    private MapParser mapParser;
     public static final int NUM = 10;
     public static final int NUM_1 = 3;
     public static final int NUM_2 = 11;
@@ -94,7 +94,8 @@ public class MapParserTest {
 
     /**
      * if the input contains zero rows.
-     */@Test
+     */
+    @Test
     void noRow() {
         assertThatExceptionOfType(PacmanConfigurationException.class)
             .isThrownBy(() -> {
@@ -103,7 +104,6 @@ public class MapParserTest {
             .withMessage("Input text must consist of at least 1 row.")
             .withNoCause();
     }
-
 
     /**
      * if the input is empty.
