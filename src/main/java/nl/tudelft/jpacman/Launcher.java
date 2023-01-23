@@ -35,7 +35,7 @@ public class Launcher {
     private String levelMap = DEFAULT_MAP;
 
     private PacManUI pacManUI;
-    public Game game;
+    private Game game;
 
     /**
      * @return The game object this launcher will start when {@link #launch()}

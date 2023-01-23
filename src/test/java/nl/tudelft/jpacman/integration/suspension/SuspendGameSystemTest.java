@@ -20,6 +20,7 @@ public class SuspendGameSystemTest {
      */
     @BeforeEach
     public void before() {
+
         launcher = new Launcher();
     }
 
@@ -51,9 +52,12 @@ public class SuspendGameSystemTest {
     }
 
     @AfterEach
-    public void after() { launcher.dispose();}
+    public void after() {
+        launcher.dispose();
+    }
 
     private Game getGame() {
+
         return launcher.getGame();
     }
 }

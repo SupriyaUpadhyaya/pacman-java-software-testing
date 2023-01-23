@@ -38,7 +38,7 @@ public class MultiLevelGameTest {
      * remainingPellets > 0.
      */
     void niceWeatherStart(){
-        game = gameFactory.createSinglePlayerGame(level, pointCalculator);
+        game = gameFactory.createMultiLevelGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(1);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(true);
         assertFalse(game.isInProgress());
@@ -51,8 +51,8 @@ public class MultiLevelGameTest {
      * isInProgress = false.
      * isAnyPlayerAlive = false.
      */
-    void gameNotInProgressPlayerDead(){
-        game = gameFactory.createSinglePlayerGame(level, pointCalculator);
+    void gameNotInProgressPlayerDead() {
+        game = gameFactory.createMultiLevelGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(0);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(false);
         assertFalse(game.isInProgress());
@@ -64,8 +64,8 @@ public class MultiLevelGameTest {
     /**
      * Only first if block is true.
      */
-    void gameInProgressPlayerAlive(){
-        game = gameFactory.createSinglePlayerGame(level, pointCalculator);
+    void gameInProgressPlayerAlive() {
+        game = gameFactory.createMultiLevelGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(1);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(true);
         assertFalse(game.isInProgress());

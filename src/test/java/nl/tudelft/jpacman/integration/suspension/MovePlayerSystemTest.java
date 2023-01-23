@@ -32,12 +32,12 @@ public class MovePlayerSystemTest {
         game = launcher.getGame();
         game.start();
         pacman = game.getPlayers().get(0);
-
+        int points = 10;
         int score = pacman.getScore();
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(next.getOccupants().get(0)).isInstanceOf(Pellet.class);
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + 10);
+        assertThat(pacman.getScore()).isEqualTo(score + points);
     }
 
     /**
@@ -56,7 +56,7 @@ public class MovePlayerSystemTest {
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(next.getOccupants().size()).isEqualTo(0);
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + 0);
+        assertThat(pacman.getScore()).isEqualTo(score);
 
     }
 
@@ -76,7 +76,7 @@ public class MovePlayerSystemTest {
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(pacman.getSquare().getSquareAt(Direction.EAST).isAccessibleTo(pacman)).isFalse();
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + 0);
+        assertThat(pacman.getScore()).isEqualTo(score);
         assertThat(pacman.getSquare().getSquareAt(Direction.EAST).isAccessibleTo(pacman)).isFalse();
 
     }
@@ -111,12 +111,12 @@ public class MovePlayerSystemTest {
         game = launcher.getGame();
         game.start();
         pacman = game.getPlayers().get(0);
-
+        int points = 10;
         int score = pacman.getScore();
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(next.getOccupants().get(0)).isInstanceOf(Pellet.class);
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + 10);
+        assertThat(pacman.getScore()).isEqualTo(score + points);
         assertThat(pacman.isAlive()).isTrue();
         assertThat(game.isInProgress()).isFalse();
     }

@@ -38,7 +38,7 @@ public class GameTest {
      * isAnyPlayerAlive = true.
      * remainingPellets > 0.
      */
-    void niceWeatherStart(){
+    void niceWeatherStart() {
         game = gameFactory.createSinglePlayerGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(1);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(true);
@@ -52,7 +52,7 @@ public class GameTest {
      * isInProgress = false.
      * isAnyPlayerAlive = false.
      */
-    void gameNotInProgressPlayerDead(){
+    void gameNotInProgressPlayerDead() {
         game = gameFactory.createSinglePlayerGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(0);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(false);
@@ -65,7 +65,7 @@ public class GameTest {
     /**
      * Only first if block is true.
      */
-    void gameInProgressPlayerAlive(){
+    void gameInProgressPlayerAlive() {
         game = gameFactory.createSinglePlayerGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(1);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(true);

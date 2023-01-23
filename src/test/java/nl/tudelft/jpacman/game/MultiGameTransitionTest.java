@@ -5,13 +5,17 @@ import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.level.Pellet;
 import nl.tudelft.jpacman.level.Player;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Test cases for Multi level game that extends the single level game
+ */
 public class MultiGameTransitionTest extends SingleGameTransitionTest {
-
+    /**
+     * Launcher of type multi level
+     */
     private MultiLevelLauncher launcherMulti;
     private Game game;
 
@@ -43,7 +47,7 @@ public class MultiGameTransitionTest extends SingleGameTransitionTest {
      * A new test playerWonLevel() must be created to assert that if a level is
      * won and it is not the last level then the game should start at the next level.
      */
-    /**@Test
+    @Test
     public void playerWonLevel() {
         launcherMulti = new MultiLevelLauncher();
         game = launcherMulti.makeGame();
@@ -62,5 +66,5 @@ public class MultiGameTransitionTest extends SingleGameTransitionTest {
         assertThat(pacman.isAlive()).isTrue();
         assertThat(game.isInProgress()).isFalse();
 
-    }*/
+    }
 }
