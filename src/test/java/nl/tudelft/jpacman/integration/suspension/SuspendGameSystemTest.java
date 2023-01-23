@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * A test class that conducts integration tests for Story 4: Suspend the Game
+ * A test class that conducts integration tests for Story 4: Suspend the Game.
  */
 
 public class SuspendGameSystemTest {
@@ -25,15 +25,15 @@ public class SuspendGameSystemTest {
     }
 
     /**
-     * Test that just starts the
+     * Test that just starts the.
      * game to checks if is indeed in progress.
      */
     @Test
     public void gameSuspendAndRestart() {
         /**
-        * Scenario 4.1 : Game is running and user clicks on stop button
-         * Game must stop running
-         * Asset statement in line 48
+        * Scenario 4.1 : Game is running and user clicks on stop button.
+         * Game must stop running.
+         * Asset statement in line 48.
         */
 
         launcher.launch();
@@ -42,8 +42,8 @@ public class SuspendGameSystemTest {
         getGame().stop();
 
         /**
-         * Scenario 4.2 : Game is stopped and user clicks on start button again
-         * Game must start running
+         * Scenario 4.2 : Game is stopped and user clicks on start button again.
+         * Game must start running.
          * */
 
         assertThat(getGame().isInProgress()).isFalse();
@@ -51,11 +51,18 @@ public class SuspendGameSystemTest {
         assertThat(getGame().isInProgress()).isTrue();
     }
 
+    /**
+     * After test cleanup
+     */
     @AfterEach
     public void after() {
         launcher.dispose();
     }
 
+    /**
+     * Get game launched.
+     * @return
+     */
     private Game getGame() {
 
         return launcher.getGame();

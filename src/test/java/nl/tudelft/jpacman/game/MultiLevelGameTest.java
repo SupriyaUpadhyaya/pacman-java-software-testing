@@ -12,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
- * Test scenarios for multi level game
+ * Test scenarios for multi level game.
  */
 public class MultiLevelGameTest {
     /**
-     * create game
+     * create game.
      */
     private Level level;
     private GameFactory gameFactory;
@@ -27,6 +27,9 @@ public class MultiLevelGameTest {
     public static final int VALUE_1 = 1;
     public static final int VALUE_2 = 0;
 
+    /**
+     * Pre setup for tests.
+     */
     @BeforeEach
     void setUp() {
         level = Mockito.mock(Level.class);
@@ -40,12 +43,13 @@ public class MultiLevelGameTest {
          * checking 100% branch coverage.
          */
     }
-    @Test
+
     /**
      * isInProgress = false.
      * isAnyPlayerAlive = true.
      * remainingPellets > 0.
      */
+    @Test
     void niceWeatherStart() {
         game = gameFactory.createMultiLevelGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(VALUE_1);
@@ -55,11 +59,11 @@ public class MultiLevelGameTest {
         assertTrue(game.isInProgress());
     }
 
-    @Test
     /**
      * isInProgress = false.
      * isAnyPlayerAlive = false.
      */
+    @Test
     void gameNotInProgressPlayerDead() {
         game = gameFactory.createMultiLevelGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(VALUE_2);
@@ -69,10 +73,10 @@ public class MultiLevelGameTest {
         assertFalse(game.isInProgress());
     }
 
-    @Test
     /**
      * Only first if block is true.
      */
+    @Test
     void gameInProgressPlayerAlive() {
         game = gameFactory.createMultiLevelGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(VALUE_1);

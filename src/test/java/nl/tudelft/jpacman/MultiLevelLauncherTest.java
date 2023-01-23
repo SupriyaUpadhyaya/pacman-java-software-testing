@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Test class for MultiLevelLauncher
+ * Test class for MultiLevelLauncher.
  */
 class MultiLevelLauncherTest {
     /**
-     * Create launcher of type multi level
+     * Create launcher of type multi level.
      */
     private MultiLevelLauncher launcher;
 

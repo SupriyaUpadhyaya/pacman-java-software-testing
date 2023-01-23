@@ -6,6 +6,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Test game default board.
+ */
 class BoardTest {
 
     /**

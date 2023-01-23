@@ -40,12 +40,13 @@ public class GameTest {
          * checking 100% branch coverage.
           */
     }
-    @Test
+
     /**
      * isInProgress = false.
      * isAnyPlayerAlive = true.
      * remainingPellets > 0.
      */
+    @Test
     void niceWeatherStart() {
         game = gameFactory.createSinglePlayerGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(1);
@@ -55,11 +56,11 @@ public class GameTest {
         assertTrue(game.isInProgress());
     }
 
-    @Test
     /**
      * isInProgress = false.
      * isAnyPlayerAlive = false.
      */
+    @Test
     void gameNotInProgressPlayerDead() {
         game = gameFactory.createSinglePlayerGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(0);
@@ -69,10 +70,10 @@ public class GameTest {
         assertFalse(game.isInProgress());
     }
 
-    @Test
     /**
      * Only first if block is true.
      */
+    @Test
     void gameInProgressPlayerAlive() {
         game = gameFactory.createSinglePlayerGame(level, pointCalculator);
         Mockito.when(level.remainingPellets()).thenReturn(1);

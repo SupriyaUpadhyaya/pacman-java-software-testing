@@ -10,9 +10,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
+/**
+ * Test class for Single level game.
+ */
 public class SingleGameTransitionTest {
-
+    /**
+     * create game and launchers.
+     */
     private Launcher launcher;
     private Game game;
 
