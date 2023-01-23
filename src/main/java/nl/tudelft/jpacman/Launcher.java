@@ -35,7 +35,7 @@ public class Launcher {
     private String levelMap = DEFAULT_MAP;
 
     private PacManUI pacManUI;
-    private Game game;
+    public Game game;
 
     /**
      * @return The game object this launcher will start when {@link #launch()}
@@ -78,7 +78,7 @@ public class Launcher {
         return game;
     }
 
-    private PointCalculator loadPointCalculator() {
+    public PointCalculator loadPointCalculator() {
         return new PointCalculatorLoader().load();
     }
 
