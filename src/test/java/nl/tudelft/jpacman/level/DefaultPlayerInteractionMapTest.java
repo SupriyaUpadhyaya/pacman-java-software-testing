@@ -7,7 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
  * This test currently covers only collision scenarios
  */
 class DefaultPlayerInteractionMapTest extends CollisionMapTest {
-
+    /**
+     * test setup.
+     */
     @BeforeEach
     void setUp() {
         setCollisionMap(new DefaultPlayerInteractionMap(getPointCalculator()));
