@@ -16,6 +16,7 @@ public class MultiLevelLauncher extends Launcher {
      *
      * @return game.
      */
+    @Override
     public Game getGame() {
 
         return game;
@@ -23,6 +24,7 @@ public class MultiLevelLauncher extends Launcher {
     /**
      * @return Launch multi level game.
      */
+    @Override
     public Game makeGame() {
         GameFactory gf = getGameFactory();
         Level level = makeLevel();

@@ -9,7 +9,7 @@ class PlayerCollisionsTest extends CollisionMapTest {
     /**
      * pre test setup.
      */
-    @BeforeEach
+    @BeforeEach @Override
     void setUp() {
         setCollisionMap(new PlayerCollisions(getPointCalculator()));
         PlayerFactory playerFactory = new PlayerFactory(getPacman());

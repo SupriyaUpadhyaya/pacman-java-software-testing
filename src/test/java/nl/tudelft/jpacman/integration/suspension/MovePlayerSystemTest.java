@@ -73,7 +73,6 @@ public class MovePlayerSystemTest {
         pacman = game.getPlayers().get(0);
 
         int score = pacman.getScore();
-        Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(pacman.getSquare().getSquareAt(Direction.EAST).isAccessibleTo(pacman)).isFalse();
         game.move(pacman, Direction.EAST);
         assertThat(pacman.getScore()).isEqualTo(score);
