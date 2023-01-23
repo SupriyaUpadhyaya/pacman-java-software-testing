@@ -10,7 +10,7 @@ class DefaultPlayerInteractionMapTest extends CollisionMapTest {
 
     @BeforeEach
     void setUp() {
-        collisionMap = new DefaultPlayerInteractionMap(getPointCalculator());
+        collisionMap = new DefaultPlayerInteractionMap(pointCalculator);
         PlayerFactory playerFactory = new PlayerFactory(pacman);
         player = playerFactory.createPacMan();
     }

@@ -4,6 +4,7 @@ import nl.tudelft.jpacman.npc.Ghost;
 import nl.tudelft.jpacman.points.DefaultPointCalculator;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
@@ -14,72 +15,34 @@ import static org.mockito.Mockito.mock;
  * Test cases for different collision between different units.
  */
 abstract class CollisionMapTest {
-    public PointCalculator getPointCalculator() {
-        return pointCalculator;
-    }
 
-    public void setPointCalculator(PointCalculator pointCalculator) {
-        this.pointCalculator = pointCalculator;
-    }
-
-    public PacManSprites getPacman() {
-        return pacman;
-    }
-
-    public void setPacman(PacManSprites pacman) {
-        this.pacman = pacman;
-    }
-
-    public CollisionMap getCollisionMap() {
-        return collisionMap;
-    }
-
-    public void setCollisionMap(CollisionMap collisionMap) {
-        this.collisionMap = collisionMap;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public Pellet getPellet() {
-        return pellet;
-    }
-
-    public void setPellet(Pellet pellet) {
-        this.pellet = pellet;
-    }
-
-    /**
-     * Create DefaultPointCalculator.
-     */
     @Mock
-    private PointCalculator pointCalculator = new DefaultPointCalculator();
+    protected PointCalculator pointCalculator = new DefaultPointCalculator();
     @Mock  protected PacManSprites pacman = new PacManSprites();
-    @Mock protected CollisionMap collisionMap;
+    @Mock CollisionMap collisionMap;
     @Mock protected Player player;
-    public static final int NUMBER = 10;
-    @Mock
-    protected Pellet pellet = new Pellet(NUMBER, pacman.getPelletSprite());
 
-    /** When Player colloides with Pellet the player.
+    int number = 10;
+    @Mock
+    protected Pellet pellet = new Pellet(number, pacman.getPelletSprite());
+
+    @BeforeEach
+    abstract void setUp();
+
+    /** When Player colloides with Pellet the player
      * points increase by the value of the pellet.
      **/
     @Test
     void playerVsPellet() {
-        final int number1 = 50;
-        final int number2 = 60;
+        int number1 = 50;
+        int number2 = 60;
         player.addPoints(number1);
         collisionMap.collide(player, pellet);
         assertThat(player.getScore()).isEqualTo(number2);
         assertThat(player.hasSquare()).isEqualTo(false);
     }
-    /** When player colloides ghost the player is not.
-     * alive and the killer of player is the ghost that player.
+    /** When player colloides ghost the player is not
+     * alive and the killer of player is the ghost that player
      * collided with.
      */
     @Test
@@ -91,12 +54,12 @@ abstract class CollisionMapTest {
     }
 
     /**
-     * When Ghost colloides Pallet nothing happens to the player.
+     * When Ghost colloides Pallet nothing happens to the player
      * - Player is alive and score is the same.
      */
     @Test
     void ghostVsPellet() {
-        final int number = 50;
+        int number = 50;
         player.addPoints(number);
         Ghost ghost = mock(Ghost.class);
         collisionMap.collide(ghost, pellet);
@@ -105,9 +68,9 @@ abstract class CollisionMapTest {
     }
 
     /**
-     * When Ghost colloides with Player the is not alive and.
+     * When Ghost colloides with Player the is not alive and
      * killer is the ghost that collided with the player.
-    */
+     */
     @Test
     void ghostVsPlayer() {
         Ghost ghost = mock(Ghost.class);
