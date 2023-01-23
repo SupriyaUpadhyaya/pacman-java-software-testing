@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * A test class that conducts integration tests for Story 2: Move the player
+ * A test class that conducts integration tests for Story 2: Move the player.
  */
 
 public class MovePlayerSystemTest {
@@ -20,10 +20,11 @@ public class MovePlayerSystemTest {
     private Launcher launcher = new Launcher();
     private Game game;
     private Player pacman;
+    public static final int  POINTS = 10;
 
     /**
-     * Assert that when player moved to a cell with a pallet
-     * the score must increase by 10 points
+     * Assert that when player moved to a cell with a pallet.
+     * the score must increase by 10 points.
      */
 
     @Test
@@ -32,17 +33,16 @@ public class MovePlayerSystemTest {
         game = launcher.getGame();
         game.start();
         pacman = game.getPlayers().get(0);
-        int points = 10;
         int score = pacman.getScore();
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(next.getOccupants().get(0)).isInstanceOf(Pellet.class);
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + points);
+        assertThat(pacman.getScore()).isEqualTo(score + POINTS);
     }
 
     /**
-     * Assert that when a player moved to an empty
-     * there is no change in score
+     * Assert that when a player moved to an empty.
+     * there is no change in score.
      */
 
     @Test
@@ -61,8 +61,8 @@ public class MovePlayerSystemTest {
     }
 
     /**
-     * Assert that a player cannot move to a
-     * cell with well
+     * Assert that a player cannot move to a.
+     * cell with well.
      */
 
     @Test
@@ -82,8 +82,8 @@ public class MovePlayerSystemTest {
     }
 
     /**
-     * Assert that when a player moved to a cell with ghost
-     * player is no longer alive and game is not running
+     * Assert that when a player moved to a cell with ghost.
+     * player is no longer alive and game is not running.
      */
     @Test
     public void playerMovesTowardsGhost() {
@@ -101,9 +101,9 @@ public class MovePlayerSystemTest {
     }
 
     /**
-     * Assert that when player moves towards the last pellet
-     * score increases by 10
-     * player is still alive before game is no longer in progress
+     * Assert that when player moves towards the last pellet.
+     * score increases by 10.
+     * player is still alive before game is no longer in progress.
      */
     @Test
     public void playerMovesTowardsLastPellet() {
@@ -111,12 +111,11 @@ public class MovePlayerSystemTest {
         game = launcher.getGame();
         game.start();
         pacman = game.getPlayers().get(0);
-        int points = 10;
         int score = pacman.getScore();
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(next.getOccupants().get(0)).isInstanceOf(Pellet.class);
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + points);
+        assertThat(pacman.getScore()).isEqualTo(score + POINTS);
         assertThat(pacman.isAlive()).isTrue();
         assertThat(game.isInProgress()).isFalse();
     }

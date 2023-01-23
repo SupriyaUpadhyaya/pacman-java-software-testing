@@ -14,12 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class MultiGameTransitionTest extends SingleGameTransitionTest {
     /**
-     * Launcher of type multi level
+     * Launcher of type multi level.
      */
     private MultiLevelLauncher launcherMulti;
     private Game game;
 
     private Player pacman;
+    public static final int NUM = 10;
 
     /**
      * test must be updated/adjusted to assert that player won only if last level is won.
@@ -37,7 +38,7 @@ public class MultiGameTransitionTest extends SingleGameTransitionTest {
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(next.getOccupants().get(0)).isInstanceOf(Pellet.class);
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + 10);
+        assertThat(pacman.getScore()).isEqualTo(score + NUM);
         assertThat(pacman.isAlive()).isTrue();
         assertThat(game.isInProgress()).isFalse();
 
@@ -62,7 +63,7 @@ public class MultiGameTransitionTest extends SingleGameTransitionTest {
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(next.getOccupants().get(0)).isInstanceOf(Pellet.class);
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + 10);
+        assertThat(pacman.getScore()).isEqualTo(score + NUM);
         assertThat(pacman.isAlive()).isTrue();
         assertThat(game.isInProgress()).isFalse();
 

@@ -11,14 +11,22 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Unit test for Game class.
+ */
 public class GameTest {
-
+    /**
+     * create game.
+     */
     private Level level;
     private GameFactory gameFactory;
     private Game game;
     private PlayerFactory playerFactory;
     private PointCalculator pointCalculator;
 
+    /**
+     * Mock setup for game.
+     */
     @BeforeEach
     void setUp() {
         level = Mockito.mock(Level.class);

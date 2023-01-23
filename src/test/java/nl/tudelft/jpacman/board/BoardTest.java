@@ -27,8 +27,8 @@ class BoardTest {
 
     /**
      * Within border cases.
-     * @param x
-     * @param y
+     * @param x X-coordinate.
+     * @param y Y-coordinate.
      */
     @ParameterizedTest(name = "x,y")
     @CsvSource({"0,2", "1,1", "2,3", "1,2"})
@@ -38,8 +38,8 @@ class BoardTest {
 
     /**
      * Outside border cases.
-     * @param x
-     * @param y
+     * @param x X-coordinate.
+     * @param y Y-coordinate
      */
     @ParameterizedTest(name = "x,y")
     @CsvSource({"2,5", "-4,3", "7,0", "5,-1"})
