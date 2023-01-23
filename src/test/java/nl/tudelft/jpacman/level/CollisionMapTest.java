@@ -4,7 +4,6 @@ import nl.tudelft.jpacman.npc.Ghost;
 import nl.tudelft.jpacman.points.DefaultPointCalculator;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
@@ -16,12 +15,12 @@ import static org.mockito.Mockito.mock;
  */
 abstract class CollisionMapTest {
     /**
-     * Create DefaultPointCalculator
+     * Create DefaultPointCalculator.
      */
     @Mock
     protected PointCalculator pointCalculator = new DefaultPointCalculator();
     @Mock  protected PacManSprites pacman = new PacManSprites();
-    @Mock CollisionMap collisionMap;
+    @Mock protected CollisionMap collisionMap;
     @Mock protected Player player;
     int number = 10;
     @Mock
