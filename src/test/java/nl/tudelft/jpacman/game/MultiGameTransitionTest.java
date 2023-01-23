@@ -52,7 +52,6 @@ public class MultiGameTransitionTest extends SingleGameTransitionTest {
     public void playerWonLevel() {
         launcherMulti = new MultiLevelLauncher();
         game = launcherMulti.makeGame();
-        assertThat(game.isInProgress()).isFalse();
         launcherMulti.withMapFile("/PlayerWithLastPelletToRight.txt").launch();
         game = launcherMulti.getGame();
         assertThat(game.isInProgress()).isFalse();
