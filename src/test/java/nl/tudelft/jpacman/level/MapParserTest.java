@@ -26,11 +26,11 @@ public class MapParserTest {
     private BoardFactory boardFactory;
     PacManSprites pacManSprites;
     MapParser mapParser;
-    public static final int num = 10;
-    public static final int num_1 = 3;
-    public static final int num_2 = 11;
-    public static final int num_3 = 29;
-    public static final int num_4 = 7;
+    public static final int NUM = 10;
+    public static final int NUM_1 = 3;
+    public static final int NUM_2 = 11;
+    public static final int NUM_3 = 29;
+    public static final int NUM_4 = 7;
 
     /**
      * used mockito framework and defined behaviour for the mock objects.
@@ -44,7 +44,7 @@ public class MapParserTest {
         Mockito.when(levelFactory.createGhost()).thenReturn(new
             Clyde(pacManSprites.getGhostSprite(GhostColor.ORANGE)));
         Mockito.when(levelFactory.createPellet()).thenReturn(new
-            Pellet(num, pacManSprites.getPelletSprite()));
+            Pellet(NUM, pacManSprites.getPelletSprite()));
         Mockito.when(boardFactory.createGround()).thenReturn(new
             BoardFactory(pacManSprites).createGround());
         Mockito.when(boardFactory.createWall()).thenReturn(new
@@ -63,13 +63,13 @@ public class MapParserTest {
             {'.', '#', '.', ' ', ' ', '#', '.', ' ', '.', '.', ' ', 'G'}};
         mapParser.parseMap(grid);
         Mockito.verify(levelFactory,
-            Mockito.times(num_1)).createGhost();
+            Mockito.times(NUM_1)).createGhost();
         Mockito.verify(levelFactory,
-            Mockito.times(num_2)).createPellet();
+            Mockito.times(NUM_2)).createPellet();
         Mockito.verify(boardFactory,
-            Mockito.times(num_3)).createGround();
+            Mockito.times(NUM_3)).createGround();
         Mockito.verify(boardFactory,
-            Mockito.times(num_4)).createWall();
+            Mockito.times(NUM_4)).createWall();
     }
 
     /**

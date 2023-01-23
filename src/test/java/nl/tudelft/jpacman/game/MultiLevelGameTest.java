@@ -24,8 +24,8 @@ public class MultiLevelGameTest {
     private PlayerFactory playerFactory;
     private PointCalculator pointCalculator;
 
-    public static final int value_1 = 1;
-    public static final int value_2 = 0;
+    public static final int VALUE_1 = 1;
+    public static final int VALUE_2 = 0;
 
     @BeforeEach
     void setUp() {
@@ -48,7 +48,7 @@ public class MultiLevelGameTest {
      */
     void niceWeatherStart() {
         game = gameFactory.createMultiLevelGame(level, pointCalculator);
-        Mockito.when(level.remainingPellets()).thenReturn(value_1);
+        Mockito.when(level.remainingPellets()).thenReturn(VALUE_1);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(true);
         assertFalse(game.isInProgress());
         game.start();
@@ -62,7 +62,7 @@ public class MultiLevelGameTest {
      */
     void gameNotInProgressPlayerDead() {
         game = gameFactory.createMultiLevelGame(level, pointCalculator);
-        Mockito.when(level.remainingPellets()).thenReturn(value_2);
+        Mockito.when(level.remainingPellets()).thenReturn(VALUE_2);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(false);
         assertFalse(game.isInProgress());
         game.start();
@@ -75,7 +75,7 @@ public class MultiLevelGameTest {
      */
     void gameInProgressPlayerAlive() {
         game = gameFactory.createMultiLevelGame(level, pointCalculator);
-        Mockito.when(level.remainingPellets()).thenReturn(value_1);
+        Mockito.when(level.remainingPellets()).thenReturn(VALUE_1);
         Mockito.when(level.isAnyPlayerAlive()).thenReturn(true);
         assertFalse(game.isInProgress());
         game.start();

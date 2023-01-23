@@ -22,9 +22,9 @@ abstract class CollisionMapTest {
     @Mock  protected PacManSprites pacman = new PacManSprites();
     @Mock protected CollisionMap collisionMap;
     @Mock protected Player player;
-    int number = 10;
+    public static final int NUMBER = 10;
     @Mock
-    protected Pellet pellet = new Pellet(number, pacman.getPelletSprite());
+    protected Pellet pellet = new Pellet(NUMBER, pacman.getPelletSprite());
 
     /** When Player colloides with Pellet the player.
      * points increase by the value of the pellet.

@@ -17,7 +17,7 @@ public class SingleGameTransitionTest {
     private Game game;
 
     private Player pacman;
-    public static final int num = 10;
+    public static final int NUM = 10;
 
     /**
      * Start a single level game using Launcher.
@@ -55,7 +55,7 @@ public class SingleGameTransitionTest {
         Square next = pacman.getSquare().getSquareAt(Direction.EAST);
         assertThat(next.getOccupants().get(0)).isInstanceOf(Pellet.class);
         game.move(pacman, Direction.EAST);
-        assertThat(pacman.getScore()).isEqualTo(score + num);
+        assertThat(pacman.getScore()).isEqualTo(score + NUM);
         assertThat(pacman.isAlive()).isTrue();
         assertThat(game.isInProgress()).isFalse();
     }
