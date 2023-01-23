@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Test cases for Multi level game that extends the single level game
+ * Test cases for Multi level game that extends the single level game.
  */
 public class MultiGameTransitionTest extends SingleGameTransitionTest {
     /**
@@ -22,7 +22,7 @@ public class MultiGameTransitionTest extends SingleGameTransitionTest {
     private Player pacman;
 
     /**
-     * test must be updated/adjusted to assert that player won only if last level is won
+     * test must be updated/adjusted to assert that player won only if last level is won.
      */
     @Override
     public void playerWon() {
@@ -44,7 +44,7 @@ public class MultiGameTransitionTest extends SingleGameTransitionTest {
     }
 
     /**
-     * A new test playerWonLevel() must be created to assert that if a level is
+     * A new test playerWonLevel() must be created to assert that if a level is.
      * won and it is not the last level then the game should start at the next level.
      */
     @Test
