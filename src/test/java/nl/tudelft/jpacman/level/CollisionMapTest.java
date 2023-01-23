@@ -31,8 +31,8 @@ abstract class CollisionMapTest {
     }
 
     /**
-     *
      * @param collisionMap
+     * @return collistionMap.
      */
     CollisionMap setCollisionMap(CollisionMap collisionMap) {
         this.collisionMap = collisionMap;
@@ -48,13 +48,12 @@ abstract class CollisionMapTest {
     }
 
     /**
-     *
      * @param player
-     *
+     * @return player.
      */
     Player setPlayer(Player player) {
         this.player = player;
-        return player;
+        return this.player;
     }
     public static final int NUMBER_1 = 50;
     public static final int NUMBER_2 = 60;
