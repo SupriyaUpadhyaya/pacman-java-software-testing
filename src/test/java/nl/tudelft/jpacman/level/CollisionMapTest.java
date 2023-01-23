@@ -22,18 +22,37 @@ abstract class CollisionMapTest {
     @Mock private CollisionMap collisionMap;
     @Mock private Player player;
 
+    /**
+     *
+     * @return point calculator.
+     */
     PointCalculator getPointCalculator() {
         return this.pointCalculator;
     }
 
+    /**
+     *
+     * @param collisionMap
+     * @return
+     */
     CollisionMap setCollisionMap(CollisionMap collisionMap) {
         this.collisionMap = collisionMap;
         return this.collisionMap;
     }
+
+    /**
+     *
+     * @return pacman.
+     */
     PacManSprites getPacman() {
         return this.pacman;
     }
 
+    /**
+     *
+     * @param player
+     * @return
+     */
     Player setPlayer(Player player) {
         this.player = player;
         return player;

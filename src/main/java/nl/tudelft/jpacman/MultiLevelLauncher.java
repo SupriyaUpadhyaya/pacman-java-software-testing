@@ -21,7 +21,7 @@ public class MultiLevelLauncher extends Launcher {
         return game;
     }
     /**
-     * Launch multi level game.
+     * @return Launch multi level game.
      */
     public Game makeGame() {
         GameFactory gf = getGameFactory();

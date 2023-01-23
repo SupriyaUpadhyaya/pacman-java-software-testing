@@ -78,6 +78,10 @@ public class Launcher {
         return game;
     }
 
+    /**
+     *
+     * @return point calculator.
+     */
     public PointCalculator loadPointCalculator() {
         return new PointCalculatorLoader().load();
     }
