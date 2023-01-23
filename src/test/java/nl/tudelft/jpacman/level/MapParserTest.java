@@ -75,10 +75,11 @@ public class MapParserTest {
     /**
      * bad weather test cases.
      */
-    @Test
+
     /**
      * checking for invalid characters.
      */
+    @Test
     void invalidChar() {
         char[][] grid = {{' ', ' ', 'G', '.', ' ', 'P', '#', '$', '.', '.', ' ', 'G'},
             {'P', ' ', '.', '.', '#', '#', '.', '#', ' ', ' ', '#', ' '},
@@ -91,10 +92,9 @@ public class MapParserTest {
             .withNoCause();
     }
 
-    @Test
     /**
      * if the input contains zero rows.
-     */
+     */@Test
     void noRow() {
         assertThatExceptionOfType(PacmanConfigurationException.class)
             .isThrownBy(() -> {
@@ -104,10 +104,11 @@ public class MapParserTest {
             .withNoCause();
     }
 
-    @Test
+
     /**
      * if the input is empty.
      */
+    @Test
     void emptyInput() {
         List<String> input = Lists.newArrayList("");
         assertThatExceptionOfType(PacmanConfigurationException.class)
@@ -118,10 +119,11 @@ public class MapParserTest {
             .withNoCause();
     }
 
-    @Test
+
     /**
      * if input is null.
      */
+    @Test
     void nullInput() {
         List<String> input = null;
         assertThatExceptionOfType(PacmanConfigurationException.class)
@@ -132,10 +134,11 @@ public class MapParserTest {
             .withNoCause();
     }
 
-    @Test
+
     /**
      * test to check exception for unequal input width.
      */
+    @Test
     void unequalWidth() {
         List<String> input = Lists.newArrayList("GP.######", "...##");
         assertThatExceptionOfType(PacmanConfigurationException.class)
@@ -146,10 +149,11 @@ public class MapParserTest {
             .withNoCause();
     }
 
-    @Test
+
     /**
      * test to check exception when resource file is not available.
      */
+    @Test
     void noResFile() {
         String resFile = "dummy.txt";
         assertThatExceptionOfType(PacmanConfigurationException.class)
