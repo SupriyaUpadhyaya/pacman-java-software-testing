@@ -52,7 +52,7 @@ public class SuspendGameSystemTest {
     }
 
     /**
-     * After test cleanup
+     * After test cleanup.
      */
     @AfterEach
     public void after() {
