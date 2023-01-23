@@ -22,9 +22,11 @@ abstract class CollisionMapTest {
     @Mock CollisionMap collisionMap;
     @Mock protected Player player;
 
-    int number = 10;
+    public static final int NUMBER_1 = 50;
+    public static final int NUMBER_2 = 60;
+    public static final int NUMBER_3 = 20;
     @Mock
-    protected Pellet pellet = new Pellet(number, pacman.getPelletSprite());
+    protected Pellet pellet = new Pellet(NUMBER_3, pacman.getPelletSprite());
 
     @BeforeEach
     abstract void setUp();
@@ -34,11 +36,9 @@ abstract class CollisionMapTest {
      **/
     @Test
     void playerVsPellet() {
-        int number1 = 50;
-        int number2 = 60;
-        player.addPoints(number1);
+        player.addPoints(NUMBER_1);
         collisionMap.collide(player, pellet);
-        assertThat(player.getScore()).isEqualTo(number2);
+        assertThat(player.getScore()).isEqualTo(NUMBER_2);
         assertThat(player.hasSquare()).isEqualTo(false);
     }
     /** When player colloides ghost the player is not
@@ -59,11 +59,10 @@ abstract class CollisionMapTest {
      */
     @Test
     void ghostVsPellet() {
-        int number = 50;
-        player.addPoints(number);
+        player.addPoints(NUMBER_1);
         Ghost ghost = mock(Ghost.class);
         collisionMap.collide(ghost, pellet);
-        assertThat(player.getScore()).isEqualTo(number);
+        assertThat(player.getScore()).isEqualTo(NUMBER_1);
         assertThat(player.isAlive()).isEqualTo(true);
     }
 
